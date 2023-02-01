@@ -57,6 +57,39 @@ class AppTest {
     }
 
     // BEGIN
-    
+    @Test
+    void testRevSeqToString() {
+        String seq = "I am The Best zent13!";
+        CharSequence revSeq = new ReversedSequence(seq);
+        assertThat(revSeq.toString()).isEqualTo("!31tnez tseB ehT ma I");
+    }
+
+    @Test
+    void testRevSeqLength() {
+        String seq = "I am!";
+        CharSequence revSeq = new ReversedSequence(seq);
+        assertThat(revSeq.length()).isEqualTo(5);
+    }
+
+    @Test
+    void testRevSeqcharAtOK() {
+        String seq = "I am";
+        CharSequence revSeq = new ReversedSequence(seq);
+        assertThat(Character.toString(revSeq.charAt(3))).isEqualTo("I");
+    }
+
+    @Test
+    void testRevSeqcharSubSequence1() {
+        String seq = "I am";
+        CharSequence revSeq = new ReversedSequence(seq);
+        assertThat(revSeq.subSequence(0, 2).toString()).isEqualTo("ma");
+    }
+
+    @Test
+    void testRevSeqcharSubSequence2() {
+        String seq = "I am";
+        CharSequence revSeq = new ReversedSequence(seq);
+        assertThat(revSeq.subSequence(1, 1).toString()).isEqualTo("");
+    }
     // END
 }
