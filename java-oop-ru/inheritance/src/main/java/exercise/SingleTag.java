@@ -11,16 +11,16 @@ public class SingleTag extends Tag {
 
     @Override
     public String toString() {
-        String result;
-        result = "<" + tagName;
+        StringBuilder result;
+        result = new StringBuilder("<" + tagName);
 
         for (Map.Entry<String, String> entry : tagAttributes.entrySet()) {
-            result += " " + entry.getKey() + "=\"" + entry.getValue() + "\"";
+            result.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\"");
         }
 
-        result += ">";
+        result.append(">");
 
-        return result;
+        return result.toString();
     }
 }
 // END

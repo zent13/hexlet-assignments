@@ -17,20 +17,20 @@ public class PairedTag extends Tag {
 
     @Override
     public String toString() {
-        String result;
-        result = "<" + tagName;
+        StringBuilder result;
+        result = new StringBuilder("<" + tagName);
 
         for (Map.Entry<String, String> entry : tagAttributes.entrySet()) {
-            result += " " + entry.getKey() + "=\"" + entry.getValue() + "\"";
+            result.append(" ").append(entry.getKey()).append("=\"").append(entry.getValue()).append("\"");
         }
-        result += ">";
+        result.append(">");
 
         for (Tag tag : tagChildes) {
-            result += tag.toString();
+            result.append(tag.toString());
         }
 
-        result += tagBody + "</" + tagName + ">";
+        result.append(tagBody).append("</").append(tagName).append(">");
 
-        return result;
+        return result.toString();
     }
 }
